@@ -13,7 +13,7 @@
  * 解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
  * 
  * 备注：
- * 注意Map的用法
+ * 注意Map的用法,Map的方法和属性
  */
 /**
  * @param {number[]} nums
@@ -56,7 +56,7 @@ function func2 (nums, target) {
     if (map.has(complement)) {     // map.has():是否存在指定的键，不是值。
       return [map.get(complement), i]   // map.get()
     }
-    map.set(nums[i], i)
+    map.set(nums[i], i)            // map.set()
   }
   return []
 }

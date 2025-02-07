@@ -42,10 +42,29 @@ function func1 (nums) {
     if (nums[i] !== nums[j]) {
       i++
       nums[i] = nums[j]
+      // nums[j] = null // 不能设为null，如果i===j，这一步就不对了
     }
   }
   return i + 1
 };
 
-var res1 = func1(arr1)
-console.log('res1:', res1, arr1.splice(0, res1))
+// var res1 = func1(arr1)
+// console.log('res1:', res1,arr1.splice(0, res1))
+
+
+function func2 (nums) {
+  if (nums.length <= 1) return nums.length
+  let i = 0
+  for (let j = i + 1; j < nums.length; j++) {
+    if (nums[i] != nums[j]) {
+      i++
+      nums[i] = nums[j]
+    }
+  }
+  return i + 1
+
+}
+const arr = [1, 1, 2, 2, 3]
+
+var res2 = func2(arr)
+console.log('res2:', res2, arr.splice(0, res2))
