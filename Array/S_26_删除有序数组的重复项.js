@@ -38,7 +38,7 @@ const arr1 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 function func1 (nums) {
   if (nums.length <= 1) return nums.length
   let i = 0
-  for (let j = 1; j < nums.length; j++) {
+  for (let j = 1; j < nums.length; j++) { // 注意是j < nums.length
     if (nums[i] !== nums[j]) {
       i++
       nums[i] = nums[j]
@@ -54,3 +54,15 @@ console.log('res1:', res1, arr1.splice(0, res1))
 
 
 // 复习：
+
+
+
+// 错题本：
+// 1. for循环中，j < nums.length，而不是j <= nums.length
+function test (arr) {
+
+}
+const arr = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+
+var res2 = test(arr)
+console.log('res2:', res2, arr.splice(0, res2))
