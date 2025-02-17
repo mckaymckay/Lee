@@ -1,5 +1,6 @@
 /**
- * https://leetcode.cn/problems/two-sum/description/?envType=problem-list-v2&envId=array
+ * 题目链接：
+ * 
  * 
  * 题目：
  * 难度：
@@ -28,15 +29,14 @@ const target1 = 9
  * 空间复杂度：
  */
 function func1 (nums, target) {
-  for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === target) {
-        return [i, j]
-      }
-    }
-  }
-  return []
+
 };
 
 var res1 = func1(arr1, target1)
 console.log('res1:', res1)
+
+
+// 复习：
+function test () {
+
+}
