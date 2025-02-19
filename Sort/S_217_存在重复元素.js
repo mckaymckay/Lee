@@ -17,20 +17,38 @@
  */
 
 
-const arr1 = [3, 2, 8, 11, 15, 7]
+const arr1 = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2]
+const arr2 = [1, 2, 3, 1]
 const target1 = 9
 
 /**
- * 方法一： 
- * 时间复杂度：
- * 空间复杂度：
+ * 方法一：set
+ * 时间复杂度：O(n)
+ * 空间复杂度：O(n)
  */
-function func1 (nums, target) {
-
+function func1 (nums) {
+  // const set = [...new Set(nums)]
+  // return set.length !== nums.length
+  return new Set(nums).size !== nums.length
 };
 
-var res1 = func1(arr1, target1)
+function func2 (nums) {
+  const map = new Map()
+  nums.forEach(v => {
+    if (map.has(v)) {
+      map.set(v, map.get(v) + 1)
+    } else {
+      map.set(v, 1)
+    }
+  })
+  return map.size !== nums.length
+}
+
+var res1 = func1(arr1)
 console.log('res1:', res1)
+
+var res2 = func2(arr1)
+console.log('res2:', res2)
 
 
 // 复习：
