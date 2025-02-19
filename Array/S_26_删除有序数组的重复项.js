@@ -30,7 +30,7 @@
 const arr1 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 
 /**
- * 方法一： 暴力解法
+ * 方法一： 双指针解法一
  * 时间复杂度：O(n)，只需要遍历一次数组
  * 空间复杂度：O(1)，原地修改数组，只需要常数空间
  */
@@ -52,6 +52,25 @@ var res1 = func1(arr1)
 console.log('res1:', res1, arr1.splice(0, res1))
 
 
+/**
+ * 方法一： 双指针解法二 - 模板法
+ * 时间复杂度：O(n)，只需要遍历一次数组
+ * 空间复杂度：O(1)，原地修改数组，只需要常数空间
+ */
+// 定义一个函数func1，参数为nums
+function func1 (nums) {
+  if (nums.length <= 1) return nums.length
+  // idx指向待插入位置
+  let idx = 1
+  for (let j = 1; j < nums.length; j++) {
+    if (nums[j] !== nums[idx - 1]) {
+      nums[idx] = nums[j]
+      idx++
+    }
+  }
+  return idx
+}
+
 
 // 复习：
 
@@ -59,8 +78,16 @@ console.log('res1:', res1, arr1.splice(0, res1))
 
 // 错题本：
 // 1. for循环中，j < nums.length，而不是j <= nums.length
-function test (arr) {
-
+function test (nums) {
+  if (nums.length <= 1) return nums.length
+  let i = 0
+  for (let j = 1; j < nums.length; j++) {
+    if (nums[j] > nums[i]) {
+      nums[i + 1] = nums[j]
+      i++
+    }
+  }
+  return i + 1
 }
 const arr = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 
