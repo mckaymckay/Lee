@@ -72,16 +72,17 @@ console.log('res2:', res2)
 
 // 复习：
 function test (nums) {
-  let i = 0
-  let j = nums.length - 1
   let max = 0
-  while (i < j) {
-    const res = Math.min(nums[j], nums[i]) * (j - i)
-    max = Math.max(res, max)
-    if (nums[i] < nums[j]) {
-      i++
-    } else {
-      j--
+  let left = 0
+  let right = nums.length - 1
+  while (left < right) {
+    const res = (right - left) * Math.min(nums[left], nums[right])
+    max = Math.max(max, res)
+    if (nums[left] < nums[right]) {
+      left++
+    }
+    else {
+      right--
     }
   }
   return max

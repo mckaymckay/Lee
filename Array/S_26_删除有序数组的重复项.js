@@ -58,7 +58,7 @@ console.log('res1:', res1, arr1.splice(0, res1))
  * 空间复杂度：O(1)，原地修改数组，只需要常数空间
  */
 // 定义一个函数func1，参数为nums
-function func1 (nums) {
+function func2 (nums) {
   if (nums.length <= 1) return nums.length
   // idx指向待插入位置
   let idx = 1
@@ -79,15 +79,14 @@ function func1 (nums) {
 // 错题本：
 // 1. for循环中，j < nums.length，而不是j <= nums.length
 function test (nums) {
-  if (nums.length <= 1) return nums.length
-  let i = 0
-  for (let j = 1; j < nums.length; j++) {
-    if (nums[j] > nums[i]) {
-      nums[i + 1] = nums[j]
-      i++
+  let left = 1
+  for (let right = 1; right < nums.length; right++) {
+    if (nums[right] != nums[left - 1]) {
+      nums[left] = nums[right]
+      left++
     }
   }
-  return i + 1
+  return left
 }
 const arr = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 
