@@ -71,6 +71,17 @@ console.log('res1:', twoSum1)
 
 // 复习：
 function test (arr, target) {
+  let left = 0
+  let right = arr.length - 1
+  while (right >= left) {
+    if (arr[left] === target) {
+      arr[left] = arr[right]
+      right--
+    } else {
+      left++
+    }
+  }
+  return left
 }
 
 const arr = [3, 2, 2, 3]

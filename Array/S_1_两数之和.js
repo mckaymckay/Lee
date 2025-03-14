@@ -63,3 +63,20 @@ function func2 (nums, target) {
 
 var twoSum2 = func2(arr1, target1)
 console.log('res2:', twoSum2)
+
+
+// 复习
+function test (nums, target) {
+  if (nums.length < 2) return []
+  const map = new Map()
+  for (let i = 0; i < nums.length; i++) {
+    if (map.has(target - nums[i])) {
+      return [map.get(target - nums[i]), i]
+    }
+    map.set(nums[i], i)
+  }
+  return []
+}
+
+const resTest = test([3, 2, 8, 11, 15, 7], 9)
+console.log('resTest:', resTest)
