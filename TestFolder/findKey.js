@@ -48,6 +48,7 @@ const root = {
   };
 
 // 1. 寻找对象中所有age等于14的key
+// 1-1 递归遍历
 function findKey(obj, targetAge,res =[]) {
     if(obj.age===targetAge){
         res.push(obj.name)
@@ -60,6 +61,7 @@ function findKey(obj, targetAge,res =[]) {
     return res
 }
 
+// 1-2 层序遍历
 function findKey1(obj,targetAge){
     let res = []
     let arr=[obj]
@@ -123,8 +125,26 @@ function flatten2(obj){
     tranverse(obj)
 return res
 }
+
+/**
+ * 复习
+ */
+function testTranverse(obj){
+    let res=[]
+    function tranverse(curObj){
+        res.push(curObj.name)
+            if(curObj.children) {
+                for(let child of curObj.children){
+                    tranverse(child)
+                }
+            }
+    }
+    tranverse(obj)
+    return res
+}
 console.log(flatten(root))
 console.log(flatten2(root))
+console.log(testTranverse(root))
 
 
 
