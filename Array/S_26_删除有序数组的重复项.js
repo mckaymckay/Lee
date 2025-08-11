@@ -76,6 +76,7 @@ function func2 (nums) {
 
 
 
+
 // 错题本：
 // 1. for循环中，j < nums.length，而不是j <= nums.length
 function test (nums) {
@@ -92,3 +93,4 @@ const arr = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 
 var res2 = test(arr)
 console.log('res2:', res2, arr.splice(0, res2))
+
