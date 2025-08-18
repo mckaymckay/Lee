@@ -1,19 +1,24 @@
 function myBind(context, ...args) {
-    if (context === null || context === undefined) {
-        context = globalThis
-    }
+    // if (context === null || context === undefined) {
+    //     context = globalThis
+    // }
+    // 可以写成
+    context = context || globalThis
 
-    const self = this // 原函数的引用
-    function boundFn(...newArgs) {
+    // 原函数的引用
+    const originalFunc = this
+    const boundFn = function (...newArgs) {
         // 如果作为构造函数调用（new），this instanceof boundFn为true
-        if (this instanceof self) {
-            return boundFn(...args, ...newArgs)
+        if (this instanceof boundFn) {
+            // 直接调用原函数作为构造函数
+            return new originalFunc(...args, ...newArgs)
         }
         // 普通函数调用
-        return self.apply(context, [...args, ...newArgs])
+        return originalFunc.apply(context, [...args, ...newArgs])
     }
+
     // 保持原型链
-    boundFn.prototype = Object.create(self.prototype)
+    boundFn.prototype = Object.create(originalFunc.prototype)
     return boundFn
 }
 
@@ -41,5 +46,6 @@ const BoundStudent = Student.myBind(null, 'aa')
 // }
 
 const student = new Student(22)
+console.log(49, student instanceof Student) // true
 // student: { name: 'aa', age: 20 }
-console.log(globalThis)
+// console.log(globalThis)

@@ -34,10 +34,15 @@ function calculator1() {
     let value = 0
 
     const api = {
-        add(num) {
+        // 两种写法，这是一个对象，要加逗号
+        add: function (num) {
             value += num
             return api
         },
+        // add(num) {
+        //     value += num
+        //     return api
+        // },
         minus(num) {
             value -= num;
             return api;

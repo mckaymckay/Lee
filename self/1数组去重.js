@@ -7,6 +7,7 @@
 
 
 let aa = [10, 1, 2, 3, 3, 3, 4, 5, 5]
+// 不能保证数组顺序
 function arrayRepeatRemove(arr) {
     const map = {}
     arr.reduce((a, c) => {
@@ -19,12 +20,20 @@ function arrayRepeatRemove(arr) {
 console.log(14, arrayRepeatRemove(aa))
 
 
+// 保持数组顺序
 function arrayRepeatRemove1(arr) {
     const map = new Map()
     arr.reduce((a, c) => {
         a.set(c, (a.get(c) || 0) + 1)
         return a
     }, map)
+    return [...map.keys()]
+}
+function removeData(arr) {
+    const map = new Map()
+    for (let item of arr) {
+        map.set(item, (map.get(item) || 0) + 1)
+    }
     return [...map.keys()]
 }
 

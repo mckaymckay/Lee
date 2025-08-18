@@ -4,9 +4,11 @@
  * call
  */
 function mycall(context, ...args) {
-    if (context === null || context === undefined) {
-        context = globalThis
-    }
+    // if (context === null || context === undefined) {
+    //     context = globalThis
+    // }
+    // 可以写成
+    context = context || globalThis
     const fn = Symbol() // 1. 创建唯一属性名
     context[fn] = this // 2. 将[函数]设为目标对象的属性（避免this丢失）
     const res = context[fn](...args) // 3. 执行该函数，传递参数
@@ -36,9 +38,11 @@ greet.mycall(person, 20, 'call')
 // 🌟🌟🌟🚗🚗🚗
 
 function myApply(context, args) {
-    if (context === null || context === undefined) {
-        context = globalThis
-    }
+    // if (context === null || context === undefined) {
+    //     context = globalThis
+    // }
+    // 可以写成
+    context = context || globalThis
     if (args !== null && !Array.isArray(args)) {
         throw new Error('args must be null or array')
     }
