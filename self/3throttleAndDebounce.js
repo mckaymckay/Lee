@@ -5,6 +5,23 @@
  * @param {*} immediate 
  * @returns 
  */
+
+function debounceInit(func, delay) {
+    let timer; // 用于存储定时器的 ID
+
+    return function (...args) {
+        const context = this; // 保存当前上下文
+
+        // 清除之前的定时器
+        clearTimeout(timer);
+
+        // 设置新的定时器
+        timer = setTimeout(() => {
+            func.apply(context, args); // 调用原始函数
+        }, delay);
+    };
+}
+
 function debounce(fn, delay = 300, immediate) {
     let timer = null
 
@@ -52,6 +69,7 @@ function throttle(fn, delay = 300) {
 }
 
 
+
 // 增强节流函数
 function throttlePro(fn, delay) {
     let lastTime = 0 // 上次执行时间点
@@ -73,7 +91,7 @@ function throttlePro(fn, delay) {
             timer = setTimeout(() => {
                 fn.apply(this, args)
                 lastTime = Date.now() // 🌟
-                timer = null
+                timer = null // 🌟
             }, remaining);
         }
     }

@@ -20,8 +20,17 @@ function sortVersions(versions) {
     });
 }
 
+
+
 // 测试
 const versions = ["1.0.1", "0.1", "1.3.26", "1.0.3.29", "2.1.3", "1.0.9.7.25"];
-console.log(sortVersions(versions));
+// console.log(sortVersions(versions));
 // 输出: ["0.1", "1.0.1", "1.0.3.29", "1.0.9.7.25", "1.3.26", "2.1.3"]
+
+const arr1 = [10, 1, 21, 2];
+
+arr1.sort((a, b) => {
+    console.log(`Comparing: a = ${a}, b = ${b}`); // 打印 a 和 b 的值
+    return a - b; // 返回比较结果
+});
 

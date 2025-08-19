@@ -22,6 +22,8 @@ function myBind(context, ...args) {
     return boundFn
 }
 
+
+
 function greet(age, city) {
     console.log(`Hello, my name is ${this.name}, age ${age}, from ${city}`)
 }
@@ -45,7 +47,7 @@ const BoundStudent = Student.myBind(null, 'aa')
 //     this.age = age
 // }
 
-const student = new Student(22)
+const student = new BoundStudent(22)
 console.log(49, student instanceof Student) // true
-// student: { name: 'aa', age: 20 }
+// student: { name: 'aa', age: 22 }
 // console.log(globalThis)

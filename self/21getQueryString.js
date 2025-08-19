@@ -11,3 +11,14 @@ function getQuery(url) {
     }, {})
     return res
 }
+
+function getQueryString(str) {
+    if (!str.includes('?')) return null
+    const params = str.split("?")[1].split("&") || []
+    const obj = []
+    for (let item of params) {
+        const [key, value = ''] = item.split('=')
+        obj[key] = decodeURIComponent(value)
+    }
+    return obj
+}
