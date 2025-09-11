@@ -148,4 +148,43 @@ function loadLimitWithError(urls, handler, limit, maxRetries = 3) {
 }
 
 // 具有失败重传
-loadLimitWithError(urls, loadImg, 3, 3)
+// loadLimitWithError(urls, loadImg, 3, 3)
+
+const concurrencyLimit = 3
+const maxRetries = 3
+function test(urls,loadFunc){
+    const lists=[...urls]
+    let promiseArr = []
+    let promiseRetry=new Map() 
+
+    function handlePromise(url,index){
+        const retryCount = promiseRetry.get(url)||0
+        return loadFunc(url).then(()=>{
+            return {status:'success',index}
+        })
+        .catch(error=>{
+            if(retryCount<maxRetries){
+                promiseArr.push(url)
+                promiseRetry.set(url,retryCount+1)
+            }else{
+                console.log();
+            }
+            return {status:'error',index}
+        })
+    }
+
+    promiseArr=lists?.splice(0,concurrencyLimit)?.map((item,index)=>{
+        return handlePromise(item,index) 
+    })
+
+    return lists.reduce(async(accPromise,cur)=>{
+        const res= await accPromise
+        if(res&&res.status==='success'){
+            promiseArr[res.index]=handlePromise(cur,res.index)
+        }
+        return Promise.race(promiseArr)
+
+    },Promise.race(promiseArr))
+}
+
+test(urls,loadImg)

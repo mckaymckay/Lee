@@ -71,6 +71,8 @@ function findKey(root) {
     }
     return res
 }
+
+
 function findKey1(root, targetAge) {
     const res = []
     function find(root) {
@@ -120,6 +122,7 @@ function findParent1(root, targetName) {
     return null
 }
 
+
 console.log(98, findParent(root))
 console.log(99, findParent1(root, 'E'))
 
@@ -155,3 +158,4 @@ function flatObj1(root) {
 
 console.log(111, flatObj(root))
 console.log(121, flatObj1(root))
+

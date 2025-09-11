@@ -54,3 +54,5 @@ function myApply(context, args) {
 }
 Function.prototype.myApply = myApply
 greet.myApply(person, [30, 'apply'])
+
+

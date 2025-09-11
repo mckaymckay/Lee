@@ -75,6 +75,8 @@ function deepClonePro(obj, hash = new WeakMap()) {
 
 
 
+
+
 const a = { name: 'Tom', info: { age: 18 } };
 a.self = a; // 循环引用
 
@@ -82,3 +84,4 @@ const b = deepClone1(a);
 console.log(b); // 深拷贝后的对象
 console.log(b.info === a.info); // false
 console.log(b.self === b); // true
+

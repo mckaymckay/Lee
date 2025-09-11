@@ -73,3 +73,20 @@ function tree(list) {
 }
 
 console.log(92, tree(list))
+
+function toRoot(list){
+  let itemsMap=new Map()
+  let res=[]
+  for(let item of list){
+    itemsMap.set(item.id,item)
+  }
+  for (let item of list){
+    const parent = itemsMap.get(item.pid)
+    if(parent){
+      parent?.children?parent.children.push(item):parent.children=[item]
+    }else{
+      res.push(item)
+    }
+  }
+  return res
+}

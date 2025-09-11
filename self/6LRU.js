@@ -39,3 +39,8 @@ cache.put('cc', 3)
 console.log(cache) // LRUChche { capacity: 2, cache: Map(2) { 'bb' => 2, 'cc' => 3 } }
 console.log(cache.get('aa')) // null
 console.log(cache.get('bb')) // 2
+
+
+class LRUCache {
+
+}
