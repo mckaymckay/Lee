@@ -53,7 +53,6 @@ const object2 = {
             f: 4
         }
     },
-    e: [4, 5]
+    e: [4, 5],
+    f:1
 };
-
-console.log(merge(object1, object2));

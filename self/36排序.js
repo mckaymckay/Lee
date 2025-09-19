@@ -61,14 +61,16 @@ function simpleSort(arr) {
         for (let j = 0; j < arr.length; j++) {
             if (arr[i] < arr[j]) {
                 // 交换
-                let temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                // let temp = arr[i];
+                // arr[i] = arr[j];
+                // arr[j] = temp;
+                [arr[i],arr[j]]=[arr[j],arr[i]]
             }
         }
     }
     return arr;
 }
+
 
 console.log(quickSort(arr));
 console.log(mergeSort([3, 4, 2, 7, 9, 5, 6]));
