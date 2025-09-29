@@ -10,12 +10,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^22.13.4",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "canvas": "^3.2.0"
+    "canvas": "^3.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   }
 }

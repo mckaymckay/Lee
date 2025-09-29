@@ -46,3 +46,5 @@ function parse(str){
  }
 
  console.log(42,parse('foo=bar&abc=xyz&abc=123'))
+
+ 
